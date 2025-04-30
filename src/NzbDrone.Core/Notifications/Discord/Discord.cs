@@ -719,7 +719,7 @@ namespace NzbDrone.Core.Notifications.Discord
             {
                 var episode = episodes.First();
 
-                return $"{series.Title} - {episode.AirDate} - {episode.Title}";
+                return $"{series.Title} - {episode.AirDate} - {episode.Title}".Replace("`", "\\`");
             }
 
             var episodeNumbers = string.Concat(episodes.Select(e => e.EpisodeNumber)
@@ -729,7 +729,7 @@ namespace NzbDrone.Core.Notifications.Discord
 
             var title = $"{series.Title} - {episodes.First().SeasonNumber}{episodeNumbers} - {episodeTitles}";
 
-            return title.Length > 256 ? $"{title.AsSpan(0, 253)}..." : title;
+            return (title.Length > 256 ? $"{title.AsSpan(0, 253)}..." : title).Replace("`", "\\`");
         }
     }
 }

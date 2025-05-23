@@ -2,7 +2,7 @@
 set -e
 
 # Optional: Set specific version/branch
-export SONARR_VERSION=4.0.0.999
+export SONARR_VERSION=4.0.15
 export BRANCH=custom
 export FRAMEWORK=net6.0
 export RID=linux-musl-x64
